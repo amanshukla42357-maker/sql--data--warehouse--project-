@@ -1,3 +1,17 @@
+/*
+=================================================================
+       DDL SCRIPT : CREATE BRONZE TABLE 
+=================================================================
+=================================================================
+      SCRIPT PURPOSE :
+      THIS SCRIPT CREATES TABLES IN "BRONZE SCHEMA ,DROPING THE
+      EXISTING TABLE IF THEY ALREADY EXIST
+   RUN THIS SCRIPT TO REDEFINE THE STRUCTURE OF THE BRONZE TABLE 
+=================================================================
+*/
+
+
+
 --creating a ddl of erp file cust_a012
 if OBJECT_ID(  'bronze.cust_A012', 'u') is not null 
 drop table  bronze.cust_A012 
