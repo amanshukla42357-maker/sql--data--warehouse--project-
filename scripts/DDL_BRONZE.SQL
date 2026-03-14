@@ -32,8 +32,8 @@ create table bronze.erp_px_cat_g1v2 (ID nvarchar(50)
 --creating a erp_file (loc_A101)
 if OBJECT_ID(  'bronze.loc_A101', 'u') is not null 
 drop table bronze.loc_A101
-create table bronze.erp_loc_A101(
-
+create table bronze.erp_loc_A101(CID nvarchar (50),CNTRY nvarchar(50))
+ print'============================================================================================='
 
 --creating a ddl for crm file prd_sales
 if OBJECT_ID('bronze.prd_sales','u') is not null
@@ -47,7 +47,7 @@ drop table bronze.sales_details
 create table bronze.crm_sales_details (sls_ord_num nvarchar(50),sls_prd_key nvarchar(50),sls_cust_id int ,sls_order_dt int,sls_ship_dt int,sls_due_dt int,sls_sales int,sls_quantity int ,sls_price int)
 
 --creating a ddl for  ficrm_file cust_info 
-if OBJECT_ID ('bronze.loc_a101' ,'u') is not null 
+if OBJECT_ID ('bronze.cust_info' ,'u') is not null 
 drop  table bronze.crm_cust_info
 create table bronze.crm_cust_info(cst_id int 
 ,cst_key nvarchar(50)
