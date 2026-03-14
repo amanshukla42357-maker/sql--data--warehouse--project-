@@ -1,17 +1,7 @@
-/*
-=================================================================
-       DDL SCRIPT : CREATE BRONZE TABLE 
-=================================================================
-=================================================================
-      SCRIPT PURPOSE :
-      THIS SCRIPT CREATES TABLES IN "BRONZE SCHEMA ,DROPING THE
-      EXISTING TABLE IF THEY ALREADY EXIST
-   RUN THIS SCRIPT TO REDEFINE THE STRUCTURE OF THE BRONZE TABLE 
-=================================================================
-*/
 
 
-/* 
+
+ 
 ==================================================================
       BULK INSERTING THE DATA INTO THE SQL SERVER
 ==================================================================
