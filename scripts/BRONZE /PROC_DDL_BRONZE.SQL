@@ -97,7 +97,7 @@ declare @start_time datetime , @end_time datetime
         FIRSTROW = 2,
         FIELDTERMINATOR = ',',
         ROWTERMINATOR = '\n',
-        TABLOCK
+        TABLOCK 
     );set @end_time = GETDATE()
    print'duration_load' + cast( datediff (second, @start_time, @end_time)as nvarchar) + 'seconds'
 
