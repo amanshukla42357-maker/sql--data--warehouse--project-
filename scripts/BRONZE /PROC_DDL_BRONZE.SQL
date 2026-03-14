@@ -1,6 +1,21 @@
+/*
+==================================================================
+       STORED PROCEDURE : LOAD BRONZE LAYER (SOURCE -> BRONZE)
+==================================================================
+SCRIPT PURPOSE :
+    THIS STORED PROCEDURE LOADS THE DATA INTO THE "BRONZE" SCHEMA
+FROM EXTERNAL CSV FILE .
+IT PERFORMS THE FOLLOWING ACTIONS :
+     TRUNCATE THE BRONZE TABLE FROM THE LOADING DATA .
+     USE THE " BULK INSERT " TO LOAD THE DATA FROM CSV FILE TO BRONZE FILE .
 
-
-
+PARAMETERS :
+ NONE 
+ THIS STORED PROCEDURE DOESNOT RETURN ANY PARAMETERS OR RETURN ANY VALUES .
+ 
+USAGE EXAMPLE 
+     --EXEC bronze.LOAD_BRONZE
+===========================================================================
  
 ==================================================================
       BULK INSERTING THE DATA INTO THE SQL SERVER
