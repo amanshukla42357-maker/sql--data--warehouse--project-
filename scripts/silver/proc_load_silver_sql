@@ -105,20 +105,24 @@ BEGIN
     -- ==========================================
     -- LOCATION TABLE
     -- ==========================================
-    SET @start_time = GETDATE();
-    PRINT('Inserting data into silver.erp_loc_A101');
-    INSERT INTO silver.erp_loc_A101 (CID, CNTRY)
-    SELECT 
-        REPLACE(cid, '-', '') AS CID,
-        CASE 
-            WHEN TRIM(CNTRY) IN ('US','USA') THEN 'UNITED STATES'
-            WHEN TRIM(CNTRY) = 'DE' THEN 'GERMANY'
-            WHEN CNTRY IS NULL OR CNTRY = '' THEN 'N/A'
-            ELSE CNTRY
-        END AS CNTRY
-    FROM bronze.erp_loc_a101;
-    SET @end_time = GETDATE();
-    PRINT('Duration LOCATION: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS VARCHAR(10)) + ' seconds');
+SET @start_time = GETDATE();
+
+TRUNCATE TABLE silver.erp_loc_A101;
+
+INSERT INTO silver.erp_loc_A101 (CID, CNTRY)
+SELECT 
+    REPLACE(cid, '-', '') AS CID,
+    CASE 
+        WHEN TRIM(CNTRY) IN ('US','USA') THEN 'UNITED STATES'
+        WHEN TRIM(CNTRY) = 'DE' THEN 'GERMANY'
+        WHEN CNTRY IS NULL OR CNTRY = '' THEN 'N/A'
+        ELSE CNTRY
+    END AS CNTRY
+FROM bronze.erp_loc_a101;
+
+SET @end_time = GETDATE();
+
+PRINT('Duration LOCATION: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS VARCHAR(10)) + ' seconds');
 
     -- ==========================================
     -- CUSTOMER INFO TABLE
@@ -137,8 +141,8 @@ BEGIN
         TRIM(cst_firstname) AS cst_firstname,
         TRIM(cst_lastname) AS cst_lastname,
         CASE 
-            WHEN UPPER(TRIM(cst_maritial_status)) = 'S' THEN 'SINGLE'
-            WHEN UPPER(TRIM(cst_maritial_status)) = 'M' THEN 'MARRIED'
+            WHEN UPPER(TRIM(cst_marital_status)) = 'S' THEN 'SINGLE'
+            WHEN UPPER(TRIM(cst_marital_status)) = 'M' THEN 'MARRIED'
             ELSE 'N/A'
         END AS cst_marital_status,
         CASE 
