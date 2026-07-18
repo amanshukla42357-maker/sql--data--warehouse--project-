@@ -1,20 +1,7 @@
-/*
-=================================================================
-       DDL SCRIPT : CREATE BRONZE TABLE 
-=================================================================
-=================================================================
-      SCRIPT PURPOSE :
-      THIS SCRIPT CREATES TABLES IN "BRONZE SCHEMA ,DROPING THE
-      EXISTING TABLE IF THEY ALREADY EXIST
-   RUN THIS SCRIPT TO REDEFINE THE STRUCTURE OF THE BRONZE TABLE 
-=================================================================
-*/
-
-
-
 --creating a ddl of erp file cust_a012
 if OBJECT_ID(  'bronze.erp_cust_A012', 'u') is not null 
 drop table  bronze.erp_cust_A012 
+go 
 create table bronze.erp_cust_A012 (CID nvarchar(50)
 ,BDATE date
 ,GEN nvarchar(10)
@@ -24,6 +11,7 @@ create table bronze.erp_cust_A012 (CID nvarchar(50)
 --creating a ddl for erp file px_cat_g1v2 
 if OBJECT_ID(  'bronze.erp_px_cat_g1v2', 'u') is not null 
 drop table bronze.erp_px_cat_g1v2
+go 
 create table bronze.erp_px_cat_g1v2 (ID nvarchar(50)
 ,CAT nvarchar(50) 
 ,SUBCAT nvarchar(50)
@@ -32,23 +20,41 @@ create table bronze.erp_px_cat_g1v2 (ID nvarchar(50)
 --creating a erp_file (loc_A101)
 if OBJECT_ID(  'bronze.erp_loc_A101', 'u') is not null 
 drop table bronze.erp_loc_A101
+go 
 create table bronze.erp_loc_A101(CID nvarchar (50),CNTRY nvarchar(50))
  print'============================================================================================='
 
 --creating a ddl for crm file prd_sales
 if OBJECT_ID('bronze.crm__prd_sales','u') is not null
 drop table bronze.crm_prd_sales
-create table bronze.crm_prd_sales(prd_id int,prd_key nvarchar(50),prd_nm nvarchar(50),prd_cost nvarchar(50),prd_line nvarchar (50),prd_start_dt datetime,prd_end_dt datetime)
+go 
+create table bronze.crm_prd_sales(prd_id int
+,prd_key nvarchar(50)
+,prd_nm nvarchar(50)
+,prd_cost nvarchar(50)
+,prd_line nvarchar (50)
+,prd_start_dt datetime
+,prd_end_dt datetime)
 
 
 --creating a ddl for crm file (sales details
 if OBJECT_ID('bronze.crm_sales_details','u') is not null
 drop table bronze.crm_sales_details
-create table bronze.crm_sales_details (sls_ord_num nvarchar(50),sls_prd_key nvarchar(50),sls_cust_id int ,sls_order_dt int,sls_ship_dt int,sls_due_dt int,sls_sales int,sls_quantity int ,sls_price int)
+go 
+create table bronze.crm_sales_details (sls_ord_num nvarchar(50)
+,sls_prd_key nvarchar(50)
+,sls_cust_id int 
+,sls_order_dt int
+,sls_ship_dt int
+,sls_due_dt int
+,sls_sales int
+,sls_quantity int 
+,sls_price int)
 
 --creating a ddl for  ficrm_file cust_info 
 if OBJECT_ID ('bronze.crm_cust_info' ,'u') is not null 
 drop  table bronze.crm_cust_info
+go 
 create table bronze.crm_cust_info(cst_id int 
 ,cst_key nvarchar(50)
 ,cst_firstname nvarchar(50)
