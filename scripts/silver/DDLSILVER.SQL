@@ -72,7 +72,9 @@ create table silver.crm_sales_details (
     sls_due_dt date,
     sls_sales int,
     sls_quantity int,
-    sls_price int, cst_create_date date,dwh_create_date datetime2 default getdate()
+    sls_price int,
+cst_create_date date
+,dwh_create_date datetime2 default getdate()
 );
 
 -- CRM Customer Info Table
@@ -85,5 +87,6 @@ create table silver.crm_cust_info (
     cst_lastname nvarchar(50),
     cst_marital_status nvarchar(50),
     cst_gndr nvarchar(50),
-    cst_create_date date,dwh_create_date datetime2 default getdate()
+    cst_create_date 
+date,dwh_create_date datetime2 default getdate()
 );
